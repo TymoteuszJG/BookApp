@@ -10,7 +10,7 @@ class Repo {
 
         suspend fun getSearchedBooks(): BookData? {
             //var BookName:String="Percy Jackson"
-            return Retro.api.getSearchedBooks( "Percy Jackson","partial","lite","pl","AIzaSyDvHL5IcME_79gg7ZOi06E9OUhfQU0CwcE").awaitResponse().body()
+            return Retro.api.getSearchedBooks( "Percy Jackson","partial","lite","pl","key").awaitResponse().body()
         }
 
 
