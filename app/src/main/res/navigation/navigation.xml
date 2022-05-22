@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/apiBooksList_Fragment">
+    app:startDestination="@id/databaseBookList_Fragment"
+    >
+    <!--app:startDestination="@id/apiBooksList_Fragment">!-->
 
     <fragment
         android:id="@+id/mainScreen_Fragment"
@@ -24,4 +26,9 @@
         android:name="com.example.bookapp.View.BookDetailsFragment"
         android:label="fragment_book_details"
         tools:layout="@layout/fragment_book_details" />
+    <fragment
+        android:id="@+id/databaseBookList_Fragment"
+        android:name="com.example.bookapp.View.DatabaseBookList_Fragment"
+        android:label="fragment_database_book_list_"
+        tools:layout="@layout/fragment_database_book_list_" />
 </navigation>

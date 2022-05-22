@@ -1,8 +1,10 @@
 package com.example.bookapp.View
 
+import android.content.ContentValues
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.bookapp.R
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.net.URL
@@ -82,9 +87,11 @@ class BookDetailsFragment : Fragment() {
             // object expressions extend Any, so `override` is required on `toString()`
             //override fun toString() = "$hello $world"
         }
-        //TODO: Zamień na aktualizację zamiast nadpisywania DONE
-        myRef.child(title.toString()).setValue(book)
+
+        myRef.child(title?.replace("." , "").toString()).setValue(book)
         //myRef.setValue(book)
+
+
 
     }
     companion object {

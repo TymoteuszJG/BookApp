@@ -1,19 +1,24 @@
 package com.example.bookapp.View
 
-import com.example.bookapp.ViewModel.MainScreen_FragmentVM
+import android.content.ContentValues
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.R
 import com.example.bookapp.ViewModel.Adapters.Api_Book_List_Adapter
 import com.example.bookapp.ViewModel.ApiBooksList_FragmentVM
-import java.text.SimpleDateFormat
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,12 +76,62 @@ class ApiBooksList_Fragment : Fragment() {
 
         })
 
+
+
+        class NodeObject {
+            var mStaticAddress: String? = null
+            var mLat: String? = null
+            var mLong: String? = null
+
+            constructor() {
+                //needed for firebase
+            }
+
+            constructor(address: String?, lat: String?, Long: String?) {
+                mStaticAddress = address
+                mLat = lat
+                mLong = Long
+            }
+
+            fun getmStaticAddress(): String? {
+                return mStaticAddress
+            }
+
+            fun setmStaticAddress(mStaticAddress: String?) {
+                this.mStaticAddress = mStaticAddress
+            }
+
+            fun getmLat(): String? {
+                return mLat
+            }
+
+            fun setmLat(mLat: String?) {
+                this.mLat = mLat
+            }
+
+            fun getmLong(): String? {
+                return mLong
+            }
+
+            fun setmLong(mLong: String?) {
+                this.mLong = mLong
+            }
+        }
+
          */
+
         val layoutManager = LinearLayoutManager(view.context)
         view.findViewById<RecyclerView>(R.id.BookListRecycle).let {
             it.adapter = adapter
             it.layoutManager = layoutManager
         }
+
+
+
+        // Read from the database
+
+
+       // postReference.addValueEventListener(postListener)
     }
 
     companion object {
