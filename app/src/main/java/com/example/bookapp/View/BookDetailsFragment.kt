@@ -83,6 +83,7 @@ class BookDetailsFragment : Fragment() {
             val Author = author
             val Description = description
             val Publish_date = publish_date
+            val Imagelink=imagelink
             val finished:Boolean=false
             // object expressions extend Any, so `override` is required on `toString()`
             //override fun toString() = "$hello $world"

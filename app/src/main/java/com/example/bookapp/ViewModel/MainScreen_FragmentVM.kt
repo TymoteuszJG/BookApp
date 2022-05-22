@@ -12,6 +12,7 @@ import com.example.bookapp.Model.Repo
 
 import kotlinx.coroutines.launch
 class MainScreen_FragmentVM (application: Application): AndroidViewModel(application) {
+    /*
     private val _weatherData : MutableLiveData<BookData> = MutableLiveData()
     val bookdata : LiveData<BookData>
         get() {
@@ -26,7 +27,7 @@ class MainScreen_FragmentVM (application: Application): AndroidViewModel(applica
             if(newBook != null)
                 _weatherData.value = newBook!!
         }
-    }
+    }*/
 
 }
 

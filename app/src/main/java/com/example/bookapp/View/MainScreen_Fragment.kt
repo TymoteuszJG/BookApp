@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.R
@@ -31,17 +33,17 @@ class MainScreen_Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var vm: MainScreen_FragmentVM
-    lateinit var vm1: ApiBooksList_FragmentVM
+    //lateinit var vm: MainScreen_FragmentVM
+   // lateinit var vm1: ApiBooksList_FragmentVM
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        vm = ViewModelProvider(this).get(MainScreen_FragmentVM::class.java)
+       // vm = ViewModelProvider(this).get(MainScreen_FragmentVM::class.java)
 
         // val name="Gliwice"
-        vm.changeBook()
+       // vm.changeBook()
 
         // vm.changeFruit("Gliwice")
         // Inflate the layout for this fragment
@@ -65,8 +67,8 @@ class MainScreen_Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //TODO:Fix this
-        val adapter=Api_Book_List_Adapter(vm.bookdata,vm1)
-        vm.bookdata.observe(viewLifecycleOwner,{adapter.notifyDataSetChanged()})
+       // val adapter=Api_Book_List_Adapter(vm.bookdata,vm1)
+      //  vm.bookdata.observe(viewLifecycleOwner,{adapter.notifyDataSetChanged()})
         /*
         vm.bookdata.observe(viewLifecycleOwner, {
 
@@ -78,11 +80,14 @@ class MainScreen_Fragment : Fragment() {
         })
 
          */
-        val layoutManager = LinearLayoutManager(view.context)
+        //val layoutManager = LinearLayoutManager(view.context)
+        /*
         view.findViewById<RecyclerView>(R.id.BookListRecycle).let {
             it.adapter = adapter
             it.layoutManager = layoutManager
-        }
+        }*/
+        view.findViewById<Button>(R.id.LoginButton).setOnClickListener(){
+            view.findNavController().navigate(R.id.action_mainScreen_Fragment_to_navigation_Fragment)}
     }
 
     companion object {

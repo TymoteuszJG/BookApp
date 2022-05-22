@@ -33,15 +33,20 @@ private const val ARG_PARAM2 = "param2"
 class ApiBooksList_Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var vm: ApiBooksList_FragmentVM
+    //var Bookname:String?=null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         vm = ViewModelProvider(this).get(ApiBooksList_FragmentVM::class.java)
-
+        //Bookname = arguments?.getString("Bookname")?:""
         // val name="Gliwice"
-        vm.changeBook()
+        val BookName=arguments?.getString("BookName")?:""
+        println(BookName)
+        println("=------------------------------------------------------------------------")
+        //val BookName=Bookname
+        vm.changeBook(BookName)
 
         // vm.changeFruit("Gliwice")
         // Inflate the layout for this fragment

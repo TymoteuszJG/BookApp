@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/databaseBookList_Fragment"
+    app:startDestination="@id/mainScreen_Fragment"
     >
     <!--app:startDestination="@id/apiBooksList_Fragment">!-->
 
@@ -11,7 +11,11 @@
         android:id="@+id/mainScreen_Fragment"
         android:name="com.example.bookapp.View.MainScreen_Fragment"
         android:label="fragment_main_screen_"
-        tools:layout="@layout/fragment_main_screen_" />
+        tools:layout="@layout/fragment_main_screen_" >
+        <action
+            android:id="@+id/action_mainScreen_Fragment_to_navigation_Fragment"
+            app:destination="@id/navigation_Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/apiBooksList_Fragment"
         android:name="com.example.bookapp.View.ApiBooksList_Fragment"
@@ -30,5 +34,30 @@
         android:id="@+id/databaseBookList_Fragment"
         android:name="com.example.bookapp.View.DatabaseBookList_Fragment"
         android:label="fragment_database_book_list_"
-        tools:layout="@layout/fragment_database_book_list_" />
+        tools:layout="@layout/fragment_database_book_list_" >
+        <action
+            android:id="@+id/action_databaseBookList_Fragment_to_bookDetailsFragment"
+            app:destination="@id/bookDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_Fragment"
+        android:name="com.example.bookapp.View.Navigation_Fragment"
+        android:label="fragment_navigation_"
+        tools:layout="@layout/fragment_navigation_" >
+        <action
+            android:id="@+id/action_navigation_Fragment_to_databaseBookList_Fragment"
+            app:destination="@id/databaseBookList_Fragment" />
+        <action
+            android:id="@+id/action_navigation_Fragment_to_searchInApi_Fragment"
+            app:destination="@id/searchInApi_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchInApi_Fragment"
+        android:name="com.example.bookapp.View.SearchInApi_Fragment"
+        android:label="fragment_search_in_api_"
+        tools:layout="@layout/fragment_search_in_api_" >
+        <action
+            android:id="@+id/action_searchInApi_Fragment_to_apiBooksList_Fragment"
+            app:destination="@id/apiBooksList_Fragment" />
+    </fragment>
 </navigation>

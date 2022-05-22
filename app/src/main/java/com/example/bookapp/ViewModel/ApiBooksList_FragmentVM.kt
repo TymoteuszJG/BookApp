@@ -18,9 +18,9 @@ class ApiBooksList_FragmentVM (application: Application): AndroidViewModel(appli
         }
 
     //fun changeFruit(name:String){
-    fun changeBook() {
+    fun changeBook(BookName:String) {
         viewModelScope.launch {
-            val newBook = Repo.getSearchedBooks()
+            val newBook = Repo.getSearchedBooks(BookName)
             //val newFruit = Repo.getall()
 
             if (newBook != null)

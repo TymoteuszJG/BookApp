@@ -8,10 +8,11 @@ class Repo {
 
 
 
-        suspend fun getSearchedBooks(): BookData? {
+        suspend fun getSearchedBooks(BookName:String): BookData? {
             //var BookName:String="Percy Jackson"
-
-            return Retro.api.getSearchedBooks( "Percy Jackson","partial","lite","pl","KEY").awaitResponse().body()
+            println(BookName)
+            println(">><<<<<<<<<<<<<<<<<<<<<<<<<<<><><><><><><><><")
+            return Retro.api.getSearchedBooks( BookName,"partial","lite","en","AIzaSyDvHL5IcME_79gg7ZOi06E9OUhfQU0CwcE").awaitResponse().body()
 
         }
 
